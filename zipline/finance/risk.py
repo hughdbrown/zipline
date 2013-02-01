@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
+r"""
 
 Risk Report
 ===========
@@ -222,7 +222,7 @@ class RiskMetricsBase(object):
 
     def calculate_period_returns(self, daily_returns):
 
-        #TODO: replace this with pandas.
+        # TODO: replace this with pandas.
         returns = [
             x.returns for x in daily_returns
             if x.date >= self.start_date and
@@ -290,7 +290,7 @@ class RiskMetricsBase(object):
         return np.mean(relative_returns) / relative_deviation
 
     def calculate_beta(self):
-        """
+        r"""
 
         .. math::
 
@@ -299,8 +299,8 @@ class RiskMetricsBase(object):
         http://en.wikipedia.org/wiki/Beta_(finance)
         """
 
-        #it doesn't make much sense to calculate beta for less than two days,
-        #so return none.
+        # it doesn't make much sense to calculate beta for less than two days,
+        # so return none.
         if len(self.algorithm_returns) < 2:
             return 0.0, 0.0, 0.0, 0.0, []
 
@@ -335,7 +335,7 @@ class RiskMetricsBase(object):
         for r in self.algorithm_returns:
             try:
                 cur_return += math.log(1.0 + r)
-            #this is a guard for a single day returning -100%
+            # this is a guard for a single day returning -100%
             except ValueError:
                 log.debug("{cur} return, zeroing the returns".format(
                     cur=cur_return))
@@ -768,8 +768,8 @@ class RiskReport(object):
         if len(self.algorithm_returns) == 0:
             return ends
 
-        #ensure that we have an end at the end of a calendar month, in case
-        #the return series ends mid-month...
+        # ensure that we have an end at the end of a calendar month, in case
+        # the return series ends mid-month...
         the_end = advance_by_months(end.replace(day=1), 1) - one_day
         while True:
             cur_end = advance_by_months(cur_start, months_per) - one_day

@@ -29,7 +29,7 @@ class DataSource(object):
         An iterator that yields the raw datasource,
         in chronological order of data, one event at a time.
         """
-        NotImplemented
+        raise NotImplementedError()
 
     @abstractproperty
     def instance_hash(self):

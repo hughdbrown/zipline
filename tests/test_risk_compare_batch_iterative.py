@@ -24,7 +24,7 @@ import zipline.finance.risk as risk
 from zipline.utils import factory
 
 from zipline.finance.trading import TradingEnvironment
-from test_risk import RETURNS
+from tests.test_risk import RETURNS
 
 
 class RiskCompareIterativeToBatch(unittest.TestCase):

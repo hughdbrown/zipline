@@ -40,10 +40,11 @@ class TransformMessage(object):
 
 
 class Passthrough(object):
-    PASSTHROUGH = True
     """
     Trivial class for forwarding events.
     """
+    PASSTHROUGH = True
+
     def __init__(self):
         pass
 
@@ -360,7 +361,7 @@ class BatchTransform(EventWindow):
         handle_data method.
         """
         # extract dates
-        #dts = [data[sid].datetime for sid in self.sids]
+        # dts = [data[sid].datetime for sid in self.sids]
         dts = [event.datetime for event in data.itervalues()]
         # we have to provide the event with a dt. This is only for
         # checking if the event is outside the window or not so a
@@ -387,7 +388,7 @@ class BatchTransform(EventWindow):
                         if (isinstance(value, (int, float)))])
             sid_keys.append(keys)
 
-        assert sid_keys[0] == set.intersection(*sid_keys),\
+        assert sid_keys[0] == set.intersection(*sid_keys), \
             "Each sid must have the same keys."
 
         unwanted_fields = set(['portfolio', 'sid', 'dt', 'type',

@@ -175,7 +175,7 @@ single short-sale transaction"""
         self.assertEqual(
             pp.period_capital_used,
             -1 * txn.price * txn.amount,
-            "capital used should be equal to the opposite of the transaction\
+            "capital used should be equal to the opposite of the transaction \
              cost of sole txn in test"
         )
 

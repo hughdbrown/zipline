@@ -14,7 +14,7 @@
 # limitations under the License.
 
 
-from utils.protocol_utils import Enum
+from .utils.protocol_utils import Enum
 
 # Datasource type should completely determine the other fields of a
 # message with its type.

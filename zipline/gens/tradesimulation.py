@@ -229,7 +229,7 @@ class AlgorithmSimulator(object):
                         for perf_message in event.perf_messages:
                             # append current values of recorded vars
                             # to emitted message
-                            perf_message['daily_perf']['recorded_vars'] =\
+                            perf_message['daily_perf']['recorded_vars'] = \
                                 self.algo.recorded_vars
                             yield perf_message
                         del event['perf_messages']
@@ -244,7 +244,7 @@ class AlgorithmSimulator(object):
                 self.perf_tracker.handle_simulation_end()
 
             for message in perf_messages:
-                message['daily_perf']['recorded_vars'] =\
+                message['daily_perf']['recorded_vars'] = \
                     self.algo.recorded_vars
                 yield message
 

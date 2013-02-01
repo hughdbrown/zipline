@@ -83,8 +83,8 @@ class VolumeShareSlippage(object):
     def simulate(self, event, open_orders):
 
         if(event.volume == 0):
-            #there are zero volume events bc some stocks trade
-            #less frequently than once per minute.
+            # there are zero volume events bc some stocks trade
+            # less frequently than once per minute.
             return None
 
         if event.sid in open_orders:

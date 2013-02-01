@@ -146,7 +146,7 @@ class TradingEnvironment(object):
 
         return last_close
 
-    #TODO: add other exchanges and timezones...
+    # TODO: add other exchanges and timezones...
     def set_NYSE_time(self, dt, hour, minute):
         naive = datetime.datetime(
             year=dt.year,
@@ -190,7 +190,7 @@ class TradingEnvironment(object):
             return False
 
         mkt_open = self.set_NYSE_time(test_date, 9, 30)
-        #TODO: half days?
+        # TODO: half days?
         mkt_close = self.set_NYSE_time(test_date, 16, 00)
 
         return test_date >= mkt_open and test_date <= mkt_close

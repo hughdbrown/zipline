@@ -98,7 +98,7 @@ class TestAlgorithm(TradingAlgorithm):
 
     def handle_data(self, data):
         self.frame_count += 1
-        #place an order for 100 shares of sid
+        # place an order for 100 shares of sid
         if self.incr < self.count:
             self.order(self.sid, self.amount)
             self.incr += 1
@@ -118,7 +118,7 @@ class HeavyBuyAlgorithm(TradingAlgorithm):
 
     def handle_data(self, data):
         self.frame_count += 1
-        #place an order for 100 shares of sid
+        # place an order for 100 shares of sid
         self.order(self.sid, self.amount)
         self.incr += 1
 
@@ -188,7 +188,7 @@ class DivByZeroAlgorithm(TradingAlgorithm):
         self.incr += 1
         if self.incr > 4:
             5 / 0
-        pass
+            #raise ZeroDivisionError()
 
 
 class TooMuchProcessingAlgorithm(TradingAlgorithm):
@@ -213,7 +213,6 @@ class TimeoutAlgorithm(TradingAlgorithm):
         if self.incr > 4:
             import time
             time.sleep(100)
-        pass
 
 
 class RecordAlgorithm(TradingAlgorithm):
@@ -224,9 +223,12 @@ class RecordAlgorithm(TradingAlgorithm):
     def handle_data(self, data):
         self.incr += 1
 
-from zipline.algorithm import TradingAlgorithm
-from zipline.transforms import BatchTransform, batch_transform
-from zipline.transforms import MovingAverage
+
+from zipline.transforms import (
+    BatchTransform,
+    batch_transform,
+    MovingAverage
+)
 
 
 class TestRegisterTransformAlgorithm(TradingAlgorithm):
@@ -247,7 +249,7 @@ class TestRegisterTransformAlgorithm(TradingAlgorithm):
 class ReturnPriceBatchTransform(BatchTransform):
     def get_value(self, data):
         assert data.shape[1] == self.window_length, \
-            "data shape={0} does not equal window_length={1} for data={2}".\
+            "data shape={0} does not equal window_length={1} for data={2}". \
             format(data.shape[1], self.window_length, data)
         return data.price
 

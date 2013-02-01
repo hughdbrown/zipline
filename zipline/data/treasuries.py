@@ -3,7 +3,7 @@ import requests
 from StringIO import StringIO
 from xml.dom.minidom import parse
 
-from loader_utils import (
+from .loader_utils import (
     guarded_conversion,
     safe_int,
     Mapping,
@@ -47,9 +47,9 @@ def treasury_mappings():
 
 
 def get_treasury_source():
-    url = """\
-http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData\
-"""
+    url = """ \
+http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData \
+""".strip()
     res = requests.get(url)
 
     content = StringIO(res.content)

@@ -19,8 +19,8 @@ from os.path import expanduser
 
 import msgpack
 
-from treasuries import get_treasury_data
-from benchmarks import get_benchmark_returns
+from .treasuries import get_treasury_data
+from .benchmarks import get_benchmark_returns
 
 # TODO: Make this path customizable.
 DATA_PATH = os.path.join(

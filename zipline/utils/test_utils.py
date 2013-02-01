@@ -124,6 +124,7 @@ class ExceptionSource(object):
 
     def next(self):
         5 / 0
+        #raise ZeroDivisionError()
 
 
 class ExceptionTransform(object):

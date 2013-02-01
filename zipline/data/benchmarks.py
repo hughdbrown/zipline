@@ -23,12 +23,11 @@ from functools import partial
 
 import requests
 
-from loader_utils import (
+from .loader_utils import (
     date_conversion,
-    source_to_records
+    source_to_records,
+    Mapping
 )
-
-from loader_utils import Mapping
 
 from zipline.finance.risk import DailyReturn
 

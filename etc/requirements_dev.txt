@@ -5,6 +5,7 @@ pyzmq==2.2.0.1
 # Testing
 nose==1.2.1
 nose-parameterized==0.2
+pylint=0.26.0
 
 # Linting
 

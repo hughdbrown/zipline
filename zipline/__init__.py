@@ -5,12 +5,12 @@ Zipline
 # This is *not* a place to dump arbitrary classes/modules for convenience,
 # it is a place to expose the public interfaces.
 
-from zipline.utils.protocol_utils import ndict
+from .utils.protocol_utils import ndict
 
-import data
-import finance
-import gens
-import utils
+import zipline.data
+import zipline.finance
+import zipline.gens
+import zipline.utils
 
 __all__ = [
     'ndict',

@@ -1,4 +1,4 @@
-from protocol_utils import ndict
+from .protocol_utils import ndict
 __all__ = [
     ndict,
 ]

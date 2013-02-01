@@ -96,7 +96,7 @@ class ndict(MutableMapping):
     def __len__(self):
         return len(self.__internal)
 
-    #TODO: Eddie please help!
+    # TODO: Eddie please help!
     def __contains__(self, key):
         if hasattr(self, '_ndict_contains__'):
             return self._ndict_contains__(key)
@@ -158,16 +158,16 @@ class ndict(MutableMapping):
         return "ndict(%s)" % str(self.__internal)
 
     # Faster dictionary comparison?
-    #def __eq__(self, other):
-        #assert isinstance(other, ndict)
+    # def __eq__(self, other):
+        # assert isinstance(other, ndict)
 
-        #keyeq = set(self.keys()) == set(other.keys())
+        # keyeq = set(self.keys()) == set(other.keys())
 
-        #if not keyeq:
-            #return False
+        # if not keyeq:
+            # return False
 
-        #for i, j in izip(self.itervalues(), other.itervalues()):
-            #if i != j:
-                #return False
+        # for i, j in izip(self.itervalues(), other.itervalues()):
+            # if i != j:
+                # return False
 
-        #return True
+        # return True

@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
+r"""
 
 Performance Tracking
 ====================
@@ -253,11 +253,11 @@ class PerformanceTracker(object):
             self.cumulative_performance.execute_transaction(event.TRANSACTION)
             self.todays_performance.execute_transaction(event.TRANSACTION)
 
-        #update last sale
+        # update last sale
         self.cumulative_performance.update_last_sale(event)
         self.todays_performance.update_last_sale(event)
 
-        #calculate performance as of last trade
+        # calculate performance as of last trade
         self.cumulative_performance.calculate_performance()
         self.todays_performance.calculate_performance()
 
@@ -273,7 +273,7 @@ class PerformanceTracker(object):
         )
         self.returns.append(todays_return_obj)
 
-        #update risk metrics for cumulative performance
+        # update risk metrics for cumulative performance
         self.cumulative_risk_metrics.update(
             self.market_close,
             self.todays_performance.returns)
@@ -293,7 +293,7 @@ class PerformanceTracker(object):
         if self.market_close >= self.last_close:
             return daily_update
 
-        #move the market day markers forward
+        # move the market day markers forward
         next_open = self.trading_environment.next_trading_day(self.market_open)
         if next_open is None:
             raise Exception(
@@ -357,7 +357,7 @@ class Position(object):
         if(self.sid != txn.sid):
             raise NameError('updating position with txn for a different sid')
 
-         #we're covering a short or closing a position
+         # we're covering a short or closing a position
         if(self.amount + txn.amount == 0):
             self.cost_basis = 0.0
             self.amount = 0
@@ -410,10 +410,10 @@ class PerformancePeriod(object):
         self.ending_value = 0.0
         self.period_capital_used = 0.0
         self.pnl = 0.0
-        #sid => position object
+        # sid => position object
         self.positions = positiondict()
         self.starting_value = 0.0
-        #cash balance at start of period
+        # cash balance at start of period
         self.starting_cash = starting_cash
         self.ending_cash = starting_cash
         self.keep_transactions = keep_transactions

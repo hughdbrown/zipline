@@ -58,7 +58,7 @@ Fetching data from Yahoo Finance.
     bm_returns = []
     for packed_date, returns in bm_list:
         event_dt = tuple_to_date(packed_date)
-        #event_dt = event_dt.replace(
+        # event_dt = event_dt.replace(
         #    hour=0,
         #    minute=0,
         #    second=0,
@@ -86,7 +86,7 @@ Fetching data from data.treasury.gov
     tr_curves = {}
     for packed_date, curve in tr_list:
         tr_dt = tuple_to_date(packed_date)
-        #tr_dt = tr_dt.replace(hour=0, minute=0, second=0, tzinfo=pytz.utc)
+        # tr_dt = tr_dt.replace(hour=0, minute=0, second=0, tzinfo=pytz.utc)
         tr_curves[tr_dt] = curve
 
     fp_tr.close()
@@ -201,7 +201,7 @@ def create_returns_from_list(returns, trading_calendar):
     one_day = timedelta(days=1)
     test_range = []
 
-    #sometimes the range starts with a non-trading day.
+    # sometimes the range starts with a non-trading day.
     if not trading_calendar.is_trading_day(current):
         current = get_next_trading_dt(current, one_day, trading_calendar)
 
@@ -270,7 +270,7 @@ def create_trade_source(sids, trade_count,
 
     # TODO: do we need to set the trading environment's end to same dt as
     # the last trade in the history?
-    #trading_environment.period_end = trade_history[-1].dt
+    # trading_environment.period_end = trade_history[-1].dt
 
     return source
 

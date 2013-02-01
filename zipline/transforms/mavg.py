@@ -41,7 +41,7 @@ class MovingAverage(object):
 
         # Market-aware mode only works with full-day windows.
         if self.market_aware:
-            assert self.window_length and not self.delta,\
+            assert self.window_length and not self.delta, \
                 "Market-aware mode only works with full-day windows."
 
         # Non-market-aware mode requires a timedelta.
